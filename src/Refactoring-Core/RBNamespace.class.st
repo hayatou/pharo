@@ -84,33 +84,8 @@ RBNamespace >> addPool: aString to: aRBClass [
 { #category : #accessing }
 RBNamespace >> allBehaviorsDo: aBlock [
 
-	| seen evalBlock |
-
-	seen := Set new.
-	evalBlock := [ :each | 
-	seen add: each first name.
-	aBlock
-		value: each first;
-		value: each last
-	].
-	newClasses do: evalBlock.
-	changedClasses do: evalBlock.
-	environment
-		classesDo: [ :each | 
-			each isObsolete
-				ifFalse: [ | class |
-
-					class := each instanceSide.
-					( ( seen includes: class name ) or: [ self hasRemoved: ( self classNameFor: class ) ] )
-						ifFalse: [ ( class := self classFor: each )
-								ifNotNil: [ seen add: class name.
-									aBlock
-										value: class;
-										value: class classSide
-									]
-							]
-					]
-			]
+	"replace with he equivqlent one"
+	self allClassesDo: aBlock 
 ]
 
 { #category : #accessing }
