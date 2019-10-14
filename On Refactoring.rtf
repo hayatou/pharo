@@ -1,0 +1,218 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21920\viewh12040\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Remarks\
+\
+- Two methods in the same class with the same implementation RBNamespace>>#allBehaviorsDo: and RBNamespace>>#allClassesDo:\
+- why == instead 0f = in RBMethodRefactoring>>buildSelectorString:withPermuteMap:\
+- why we do not check if the method exist before creating them (hash equal printString) like accessors\
+- why we use RBExtractToTemporaryRefactoring>>isValidInstanceVariableName: not temporary?\
+- rename RBInlineAllSendersRefactoring>>sendersOf:in: ??? \
+- rename RBInlineMethodRefactoring>>inline: anInterval inMethod: aSelector forClass: aClass\
+- why when we generate hash,equal and printString we dont check if they already exist like accessors?\
+- inconsistant method classificaton: RBAbstractClass>>removeSubclass:\
+- the classification of methods in variable accessing category of RBClass?\
+- rename -whoDefinesethod -->> whoDefinesMethodInHiearchy?\
+\
+\
+Unused argument in :\
+RBBrowserEnvironment>>#definesClass:\
+RBBrowserEnvironment>>#includesCategory:\
+RBBrowserEnvironment>>#includesClass:\
+RBBrowserEnvironment>>#includesPackage:\
+RBAbstractClass>>#typeOfClassVariable:\
+RBRefactoryChangeManager>>#update:\
+ \
+--------------------\
+verify if a symbol is used (global)\
+verify if a variable is define in the hierrarchy\
+verify if a class directly define a variable \
+verify if a class define a method\
+verify if a class understand a method\
+verify if a class is empty\
+verify if a class is not referenced\
+\
+\
+\
+--------------------------------\
+list methods define in a given class\
+define a class\
+copy extension method from and old class to a new class\
+find aclass classside extension method\
+find aclass instance side extension method\
+remove aclass classside extension method\
+remove aclass instance side extension method\
+create a class\
+rename a reference\
+rename (change) superclass of a class\
+change reference to aSymbol\
+find subclass selectors that send a superMessage #(#release #postCopy #postBuildWith: #preBuildWith: #postOpenWith: #noticeOfWindowClose: #initialize)\
+create SubclassResponsibility For aSelector in  aClass\
+pull Up Class Instance Variables\
+pull Up Instance Variables\
+pull Up methods\
+pull up pool variable\
+change(reparent) a superclass of a class\
+find methods to move from a class to a new one\
+create accessor for variables\
+find the classname\
+generate a hash method\
+generate = method\
+generate printOn: message\
+generate a method with self shoulbeimplemented for abstract metho in superclass\
+find class that define aMethod\
+add method to aclass\
+find implmentor\
+rename method\
+rename message send\
+delete method\
+verify if aClass has a reference to a variable\
+compute safe name for temporarie\
+compute safe name for method (when remove an argument for exemple)\
+remove a method parameter \
+verify if arguments of a methods was permuted\
+adding a statement node\
+find a receiver in a statement\
+find a selected sequence in a source code\
+find statement in a sequence\
+compiling code\
+combine statements\
+find a method equivalent to a selection in source code\
+verify if a variable name is valid (not used as temporary or instance or class)\
+insert a variable (temporary, instance,class)\
+insert inlined method\
+find referencesof a symbol\
+find a class name\
+verify if a class name is valid\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Some possible method extractions\
+\
+1\
+RBRefactoring>>#safeMethodNameFor:basedOn:\
+RBAddVariableAccessorTransformation>>#safeMethodNameFor:basedOn:\
+\
+2\
+RBAddClassRefactoring>>#addClass:superclass:subclasses:category:\
+RBAddClassTransformation>>#addClass:superclass:subclasses:category:\
+3\
+RBNamespace>>#allBehaviorsDo:\
+RBNamespace>>#allClassesDo:\
+4\
+RBPushDownVariableTransformation>>#asRefactoring\
+RBMoveTemporaryVariableDefinitionTransformation>>#asRefactoring\
+5\
+RBAddClassTraitChange>>#asUndoOperation\
+RBAddMetaClassChange>>#asUndoOperation\
+6\
+RBRenameVariableChange>>#changeClass\
+RBRefactoryClassChange>>#changeClass\
+7\
+RBAddPoolVariableChange>>#changeClass:\
+RBCommentChange>>#changeClass:\
+RBRemoveClassVariableChange>>#changeClass:\
+RBRemoveClassChange>>#changeClass:\
+RBAddClassVariableChange>>#changeClass:\
+8\
+RBAddInstanceVariableChange>>#changeString\
+RBAddPoolVariableChange>>#changeString\
+RBRemoveClassVariableChange>>#changeString\
+RBRemoveInstanceVariableChange>>#changeString\
+RBRemovePoolVariableChange>>#changeString\
+RBAddClassVariableChange>>#changeString\
+9\
+RBSplitClassRefactoring>>#class:instanceVariables:newClassName:referenceVariableName:\
+RBSplitClassTransformation>>#class:instanceVariables:newClassName:referenceVariableName:\
+10\
+RBClassEnvironment>>#classesDo:\
+RBSelectorEnvironment>>#classesDo:\
+11\
+RBRefactoring>>#convertAllReferencesTo:using:\
+RBRefactoring>>#convertAllReferencesToClass:using:\
+12\
+RBRefactoring>>#copyOptionsFrom:\
+RBTransformation>>#copyOptionsFrom:\
+13\
+RBAbstractClassVariableRefactoring>>#createAccessors\
+RBAbstractInstanceVariableRefactoring>>#createAccessors\
+14\
+RBSplitClassRefactoring>>#createNewClass\
+RBSplitClassTransformation>>#createNewClass\
+15\
+RBCreateAccessorsForVariableRefactoring>>#defineGetterMethod\
+RBAddVariableAccessorTransformation>>#defineGetterMethod\
+16\
+RBPackageEnvironment>>#definesClass:\
+RBCategoryEnvironment>>#definesClass:\
+17\
+RBCompositeMethodTransformation>>#definingClass\
+RBSplitClassTransformation>>#definingClass\
+18\
+RBRefactoryClassChange>>#displayClassName\
+RBRenameVariableChange>>#displayClassName\
+19\
+RBNamespace>>#environment:\
+RBSmalllintChecker>>#environment:\
+20\
+RBRemoveClassRefactoring>>#environmentWithReferencesTo:\
+RBRemoveClassTransformation>>#environmentWithReferencesTo:\
+21\
+RBRemoveClassRefactoring>>#environmentWithUsersOf:\
+RBRemoveClassTransformation>>#environmentWithUsersOf:\
+22\
+RBExtractMethodToComponentRefactoring>>#extract:from:in:\
+RBExtractMethodRefactoring>>#extract:from:in:\
+23\
+RBInlineMethodRefactoring>>#findSelectedMessage\
+RBInlineMethodFromComponentRefactoring>>#findSelectedMessage\
+24\
+RBExtractMethodRefactoring>>#getNewMethodName\
+RBMoveMethodRefactoring>>#getNewMethodName\
+25\
+RBSelectorEnvironment>>#includesProtocol:in:\
+RBOrEnvironment>>#includesProtocol:in:\
+RBAndEnvironment>>#includesProtocol:in:\
+RBPragmaEnvironment>>#includesProtocol:in:\
+RBPackageEnvironment>>#includesProtocol:in:\
+26\
+RBSelectorEnvironment>>#includesSelector:in:\
+RBOrEnvironment>>#includesSelector:in:\
+RBAndEnvironment>>#includesSelector:in:\
+RBPragmaEnvironment>>#includesSelector:in:\
+RBPackageEnvironment>>#includesSelector:in:\
+27\
+RBInlineTemporaryRefactoring>>#inline:from:in:\
+RBInlineMethodRefactoring>>#inline:inMethod:forClass:\
+28\
+RBRefactoring>>#openBrowserOn:\
+RBTransformation>>#openBrowserOn:\
+29\
+RBRefactoring>>#options\
+RBTransformation>>#options\
+30\
+RBRemovePragmaTransformation>>#pragma:inMethod:inClass:\
+RBAddPragmaTransformation>>#pragma:inMethod:inClass:\
+31\
+RBRemoveClassRefactoring>>#preconditionIsNotMetaclass:\
+RBRemoveClassTransformation>>#preconditionIsNotMetaclass:\
+32\
+RBAddProtocolTransformation>>#protocol:inClass:\
+RBRemoveProtocolTransformation>>#protocol:inClass:\
+33\
+RBRemoveMethodRefactoring>>#removeMethods:from:\
+RBRemoveHierarchyMethodRefactoring>>#removeMethods:from:\
+34\
+RBRenameInstanceVariableRefactoring>>#renameReferences\
+RBRenameVariableTransformation>>#renameReferences\
+35\
+RBApplyClassDeprecationRefactoring>>#renameReferences\
+RBClassDeprecationReRefactoring>>#renameReferences\
+36\
+RBRemoveReturnStatementTransformation>>#return:inMethod:inClass:\
+RBAddReturnStatementTransformation>>#return:inMethod:inClass:\
+}
